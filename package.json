@@ -4,15 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch server --exec babel-node -- server/index.js"
+    "start": "nodemon --watch server --exec babel-node -- server/index.js",
+    "local": "webpack-dev-server --port 3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.16.3",
+    "mysql2": "^1.6.1",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "sequelize": "^4.38.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -23,6 +27,7 @@
     "react-hot-loader": "^4.3.5",
     "webpack": "^4.17.1",
     "webpack-dev-middleware": "^3.2.0",
+    "webpack-dev-server": "^3.1.7",
     "webpack-hot-middleware": "^2.23.0"
   }
 }
