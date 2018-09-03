@@ -34,37 +34,48 @@ class SignupForm extends Component {
     const { firstName, 
         lastName, email, password, 
         birthMonth, birthDay, birthYear, gender } = this.state;
-    return (
-      <form onSubmit={this.onSubmit}>
-        <TextFieldGroup 
-          name="firstName"
-          placeholder="First name"
-          onChange={this.onChange}
-          value={firstName} />
 
-        <TextFieldGroup 
-          name="lastName"
-          placeholder="Last name"
-          onChange={this.onChange}
-          value={lastName} />
+    return (
+      <form className="flex-col signup-form" onSubmit={this.onSubmit}>
+        <div className="flex-row">
+          <TextFieldGroup 
+            name="firstName"
+            styles="signup-input"
+            placeholder="First name"
+            onChange={this.onChange}
+            value={firstName} />
+
+          <TextFieldGroup 
+            name="lastName"
+            styles="signup-input"
+            placeholder="Last name"
+            onChange={this.onChange}
+            value={lastName} />
+        </div>
 
         <TextFieldGroup 
           name="email"
-          placeholder="Email"
+          styles="signup-input"
+          placeholder="Mobile number or email"
           onChange={this.onChange}
           value={email} />
 
         <TextFieldGroup 
           name="password"
           type="password"
+          styles="signup-input"
           placeholder="New Password"
           onChange={this.onChange}
           value={password} />
 
-        <DatePicker day={birthDay} 
-          month={birthMonth}
-          year={birthYear}
-          onChange={this.onChange}/>
+        <div>
+          <label >Birthday</label>
+          <DatePicker day={birthDay} 
+            month={birthMonth}
+            year={birthYear}
+            onChange={this.onChange}/>
+        </div>
+
         <GenderPicker checked={gender} onChange={this.onChange} />
 
         <button>Sign Up</button>

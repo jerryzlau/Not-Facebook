@@ -4,7 +4,7 @@ import OptionFieldGroup from './OptionFieldGroup';
 
 const GenderPicker = ({checked, onChange}) => {
   return (
-    <div>
+    <div style={{width: '150px'}} className="flex-row">
       <div>
         <label>Male</label>
         <input onChange={onChange} 

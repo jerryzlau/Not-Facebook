@@ -7,6 +7,30 @@ input:focus {
   outline: none;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signup-form {
+  width: 450px;
+}
+
+.signup-input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #bdc7d8;
+  font-size: 18px;
+  width: 100%;
+  margin: 5px;
+}
+
 .option-field-group {
   border: 1px solid #bdc7d8;
   height: 30px;
