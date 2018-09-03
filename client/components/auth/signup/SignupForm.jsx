@@ -36,7 +36,7 @@ class SignupForm extends Component {
         birthMonth, birthDay, birthYear, gender } = this.state;
 
     return (
-      <form className="flex-col signup-form" onSubmit={this.onSubmit}>
+      <form className="signup-form flex-col" onSubmit={this.onSubmit}>
         <div className="flex-row">
           <TextFieldGroup 
             name="firstName"
@@ -68,17 +68,23 @@ class SignupForm extends Component {
           onChange={this.onChange}
           value={password} />
 
-        <div>
-          <label >Birthday</label>
+        <div className="flex-col small-margin">
+          <label>Birthday</label>
           <DatePicker day={birthDay} 
             month={birthMonth}
             year={birthYear}
             onChange={this.onChange}/>
         </div>
 
-        <GenderPicker checked={gender} onChange={this.onChange} />
+        <div className="small-margin">
+          <GenderPicker checked={gender} onChange={this.onChange} />
+        </div>
 
-        <button>Sign Up</button>
+        <p className="grey-text small-text">
+          By clicking Sign Up, you agree to our <a href=" ">Terms</a>, <a href=" ">Data Policy</a> and <a href=" ">Cookies Policy.</a> You may receive SMS Notifications from us and can opt out any time.
+        </p>
+
+        <button className="signup-button"><b>Sign Up</b></button>
       </form>
     );
   }

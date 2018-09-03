@@ -5,8 +5,8 @@ class SignupPage extends Component {
   render() {
     return (
       <div className="signup-page">
-        <p>Create a New Account</p>
-        <p>It's free and always will be.</p>
+        <h1>Create a New Account</h1>
+        <span className="grey-text">It's free and always will be.</span>
         <SignupForm/>
       </div>
     );
