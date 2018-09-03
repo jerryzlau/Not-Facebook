@@ -5,10 +5,17 @@ import path from 'path';
  * variables
  */
 let app = express();
+import bodyParser from 'body-parser';
 import models from '../models';
 let config = {
   app: require('../config/app')
 };
+
+/**
+ * Middlewares
+ */
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 /**
  * Import routes

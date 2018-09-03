@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { hot } from "react-hot-loader";
+import AppRouter from './AppRouter';
+import NavBar from './nav/NavBar';
+import '../app.css';
 
 class App extends Component {
   constructor(props) {
@@ -9,8 +12,9 @@ class App extends Component {
   
   render() {
     return (
-      <div>
-        <h1>Hello from React!!</h1>
+      <div className="container">
+        <NavBar/>
+        <AppRouter/>
       </div>
     );
   }

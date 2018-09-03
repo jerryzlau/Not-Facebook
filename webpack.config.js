@@ -23,6 +23,10 @@ export default {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -32,6 +36,6 @@ export default {
     new webpack.optimize.OccurrenceOrderPlugin()
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '*']
+    extensions: ['.js', '.jsx', '.css', '*']
   }
 };

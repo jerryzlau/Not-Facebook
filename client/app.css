@@ -1,0 +1,18 @@
+/* Get rid of default css */
+select:focus {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.option-field-group {
+  border: 1px solid #bdc7d8;
+  height: 30px;
+  padding: 5px;
+}
+
+.container {
+  font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+}
