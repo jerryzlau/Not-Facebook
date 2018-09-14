@@ -37,5 +37,8 @@ export default {
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.css', '*']
+  },
+  devServer: {
+    port: 9000
   }
 };

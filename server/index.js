@@ -12,6 +12,16 @@ let config = {
 };
 
 /**
+ * Initialise req variables
+ */
+app.use(function (req, res, next) {
+  req._config = config;
+  req._models = models;
+  req._app = app;
+  next();
+});
+
+/**
  * Middlewares
  */
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,23 +52,14 @@ app.use(webpackMiddleware(compiler, {
 
 app.use(webackHotMiddleware(compiler));
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, './index.html')); // this line sends client code to index.html
-});
-
-/**
- * Initialise req variables
- */
-app.use(function (req, res, next) {
-  req._config = config;
-  req._models = models;
-  req._app = app;
-});
-
 /**
  * API Routes
  */
 app.use('/api/users', ApiUsers);
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, './index.html')); // this line sends client code to index.html
+});
 
 app.listen(config.app.port, () => {
   console.log('Express Server running on localhost:' + config.app.port);
