@@ -62,7 +62,10 @@ router.post('/', (req, res) => {
               });
           });
       }else{
-        res.status(400).json(errors);
+        res.status(400).send({
+          success: false,
+          errors
+        });
       }
     });
 });

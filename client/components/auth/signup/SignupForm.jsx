@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextFieldGroup from '../../common/TextFieldGroup';
 import DatePicker from '../../common/DatePicker';
 import GenderPicker from '../../common/GenderPicker';
-
+import { withRouter } from "react-router-dom";
 class SignupForm extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,8 @@ class SignupForm extends Component {
       birthMonth: '',
       birthDay: '',
       birthYear: '',
-      gender: ''
+      gender: '',
+      errors: {}
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -22,19 +23,31 @@ class SignupForm extends Component {
   }
 
   onChange(e){
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({
+      [e.target.name]: e.target.value,
+      errors: {}
+    });
   }
 
   onSubmit(e){
     e.preventDefault();
     // console.log(this.state);
-    this.props.userSignupRequest(this.state);
+    this.props.userSignupRequest(this.state)
+      .then((user) => {
+        console.log(user);
+        this.props.history.push('/newsfeed');
+      }, (error) => {
+        let { errors } = JSON.parse(error.responseText);
+        this.setState({
+          errors
+        });
+      });
   }
 
   render() {
     const { firstName, 
         lastName, email, password, 
-        birthMonth, birthDay, birthYear, gender } = this.state;
+      birthMonth, birthDay, birthYear, gender, errors } = this.state;
 
     return (
       <form className="signup-form flex-col" onSubmit={this.onSubmit}>
@@ -44,6 +57,7 @@ class SignupForm extends Component {
             styles="signup-input"
             placeholder="First name"
             onChange={this.onChange}
+            error={errors.firstName}
             value={firstName} />
 
           <TextFieldGroup 
@@ -51,6 +65,7 @@ class SignupForm extends Component {
             styles="signup-input"
             placeholder="Last name"
             onChange={this.onChange}
+            error={errors.lastName}
             value={lastName} />
         </div>
 
@@ -59,6 +74,7 @@ class SignupForm extends Component {
           styles="signup-input"
           placeholder="Mobile number or email"
           onChange={this.onChange}
+          error={errors.email}
           value={email} />
 
         <TextFieldGroup 
@@ -67,6 +83,7 @@ class SignupForm extends Component {
           styles="signup-input"
           placeholder="New Password"
           onChange={this.onChange}
+          error={errors.password}
           value={password} />
 
         <div className="flex-col small-margin">
@@ -91,4 +108,4 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm;
+export default withRouter(SignupForm);
