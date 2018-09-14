@@ -15,6 +15,7 @@ function buildYear(onChange){
     <OptionFieldGroup 
       onChange={onChange}
       options={options}
+      name="birthYear"
       defaultOption="Year" />
   );
 }
@@ -32,6 +33,7 @@ function buildDay(onChange){
     <OptionFieldGroup 
       onChange={onChange}
       options={options}
+      name="birthDay"
       defaultOption="Day"/>
   );
 }
@@ -76,7 +78,7 @@ function buildMonth(onChange){
     },
     {
       value: '10',
-      label: 'OCT'
+      label: 'Oct'
     },
     {
       value: '11',

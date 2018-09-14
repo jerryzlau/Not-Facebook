@@ -4,20 +4,23 @@
     "password": null,
     "database": "not_facebook",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone": "America/Los_Angeles"
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "not_facebook",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone": "America/Los_Angeles"
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "not_facebook",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone": "America/Los_Angeles"
   }
 }

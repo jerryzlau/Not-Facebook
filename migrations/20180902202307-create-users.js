@@ -9,15 +9,30 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       firstName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       lastName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
       },
       password_digest: {
+        type: Sequelize.STRING
+      },
+      gender: {
+        type: Sequelize.ENUM('M', 'F'),
+        allowNull: false
+      },
+      birthdate: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      mobileNum: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -27,7 +42,7 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
