@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OptionFieldGroup from './OptionFieldGroup';
 
-const GenderPicker = ({checked, onChange}) => {
+const GenderPicker = ({checked, onChange, error}) => {
+  console.log(error);
   return (
     <div style={{width: '150px'}} className="flex-row">
-      <div>
+      <div style={error && { border: '1px solid red'}}>
         <label>Male</label>
         <input onChange={onChange} 
           checked={checked === "M"}
@@ -13,7 +14,7 @@ const GenderPicker = ({checked, onChange}) => {
           name="gender" 
           value="M"/>
       </div>
-      <div>
+      <div style={error && { border: '1px solid red' }}>
         <label>Female</label>
         <input onChange={onChange} 
           checked={checked === "F"}

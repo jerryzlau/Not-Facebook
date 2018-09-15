@@ -24,16 +24,8 @@ export default function validateInput(data) {
     errors.lastName = 'Last name is required';
   }
 
-  if (Validator.isEmpty(data.birthDay)) {
-    errors.birthDay = 'Birth day is required';
-  }
-
-  if (Validator.isEmpty(data.birthMonth)) {
-    errors.birthMonth = 'Birth Month is required';
-  }
-
-  if (Validator.isEmpty(data.birthYear)) {
-    errors.birthYear = 'Birth year is required';
+  if (Validator.isEmpty(data.birthDay) || Validator.isEmpty(data.birthMonth) || Validator.isEmpty(data.birthYear)) {
+    errors.birthdate = 'Invalid birthdate';
   }
 
   if (Validator.isEmpty(data.gender)) {

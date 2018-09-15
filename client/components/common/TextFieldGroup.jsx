@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const TextFieldGroup = ({name, value, label, error, type, onChange, placeholder, styles}) => {
+  styles = error ? 'has-error ' + styles + ' has-error': styles;
   return(
-    <div className={classnames("form-group", {"has-error": error})}>
-      <label className="control-label">{label}</label>
+    <div className="form-group">
+      {/* <label className="control-label">{label}</label> */}
       <input 
         type={type}
         name={name}
@@ -13,7 +14,7 @@ const TextFieldGroup = ({name, value, label, error, type, onChange, placeholder,
         onChange={onChange}
         value={value}
         className={styles ? styles : 'normal-input'}/>
-      {error && <span className="help-block">{error}</span>}
+      {/* {error && <span className="help-block">{error}</span>} */}
     </div>
   );
 };

@@ -52,50 +52,55 @@ class SignupForm extends Component {
     return (
       <form className="signup-form flex-col space-between" onSubmit={this.onSubmit}>
         <div className="flex-row space-between">
-          <TextFieldGroup 
+          <input
             name="firstName"
-            styles="signup-input"
+            className="signup-input"
+            style={errors.firstName && { border: '1px solid red' }}
             placeholder="First name"
             onChange={this.onChange}
-            error={errors.firstName}
-            value={firstName} />
+            value={firstName} />  
 
-          <TextFieldGroup 
+          <input
             name="lastName"
-            styles="signup-input"
+            className="signup-input"
             placeholder="Last name"
+            style={errors.lastName && { border: '1px solid red' }}
             onChange={this.onChange}
             error={errors.lastName}
-            value={lastName} />
+            value={lastName} />  
         </div>
 
-        <TextFieldGroup 
+        <input
           name="email"
-          styles="signup-input"
+          className="signup-input"
           placeholder="Mobile number or email"
           onChange={this.onChange}
-          error={errors.email}
-          value={email} />
+          style={errors.email && { border: '1px solid red' }}
+          value={email} />  
 
-        <TextFieldGroup 
+        <input
           name="password"
           type="password"
-          styles="signup-input"
+          className="signup-input"
           placeholder="New Password"
           onChange={this.onChange}
           error={errors.password}
-          value={password} />
+          style={errors.password && { border: '1px solid red' }}
+          value={password} />  
 
         <div className="flex-col small-margin space-between">
           <label>Birthday</label>
           <DatePicker day={birthDay} 
             month={birthMonth}
             year={birthYear}
+            error={errors.birthdate}
             onChange={this.onChange}/>
         </div>
 
         <div className="margin-5">
-          <GenderPicker checked={gender} onChange={this.onChange} />
+          <GenderPicker checked={gender} 
+            onChange={this.onChange}
+            error={errors.gender} />
         </div>
 
         <p className="grey-text small-text">

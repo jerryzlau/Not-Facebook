@@ -10,9 +10,12 @@ function buildOptions(options){
   });
 }
 
-const OptionFieldGroup = ({name ,options, onChange, defaultOption}) => {
+const OptionFieldGroup = ({name ,options, onChange, defaultOption, error}) => {
   return (
-    <select className="option-field-group" name={name} onChange={onChange}>
+    <select className="option-field-group" 
+      style={error && { border: '1px solid red' }}
+      name={name} 
+      onChange={onChange}>
       <option value="" selected>{defaultOption}</option>
       {buildOptions(options)}
     </select>

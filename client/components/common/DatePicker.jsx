@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OptionFieldGroup from './OptionFieldGroup';
 
-function buildYear(onChange){
+function buildYear(onChange, error){
   let options = [];
   for(var i=(new Date()).getFullYear(); i>=1905; i--){
     options.push({
@@ -16,11 +16,12 @@ function buildYear(onChange){
       onChange={onChange}
       options={options}
       name="birthYear"
+      error={error}
       defaultOption="Year" />
   );
 }
 
-function buildDay(onChange){
+function buildDay(onChange, error){
   let options = [];
   for(var i=1; i<=31; i++){
     options.push({
@@ -34,11 +35,12 @@ function buildDay(onChange){
       onChange={onChange}
       options={options}
       name="birthDay"
+      error={error}
       defaultOption="Day"/>
   );
 }
 
-function buildMonth(onChange){
+function buildMonth(onChange, error){
   let options = [
     {
       value: '01',
@@ -95,16 +97,17 @@ function buildMonth(onChange){
       options={options}
       onChange={onChange}
       name="birthMonth"
+      error={error}
       defaultOption="Month" />
   );
 }
 
-const DatePicker = ({onChange}) => {
+const DatePicker = ({onChange, error}) => {
   return (
     <div>
-      {buildMonth(onChange)}
-      {buildDay(onChange)}
-      {buildYear(onChange)}
+      {buildMonth(onChange, error)}
+      {buildDay(onChange, error)}
+      {buildYear(onChange, error)}
     </div>
   );
 };

@@ -71,6 +71,10 @@ nav {
   color: #777;
 }
 
+.has-error{
+  border: 1px solid red;
+}
+
 /* Unique */
 
 .signup-page {
