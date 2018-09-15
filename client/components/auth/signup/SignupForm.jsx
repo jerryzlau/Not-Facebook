@@ -50,8 +50,8 @@ class SignupForm extends Component {
       birthMonth, birthDay, birthYear, gender, errors } = this.state;
 
     return (
-      <form className="signup-form flex-col" onSubmit={this.onSubmit}>
-        <div className="flex-row">
+      <form className="signup-form flex-col space-between" onSubmit={this.onSubmit}>
+        <div className="flex-row space-between">
           <TextFieldGroup 
             name="firstName"
             styles="signup-input"
@@ -86,7 +86,7 @@ class SignupForm extends Component {
           error={errors.password}
           value={password} />
 
-        <div className="flex-col small-margin">
+        <div className="flex-col small-margin space-between">
           <label>Birthday</label>
           <DatePicker day={birthDay} 
             month={birthMonth}
@@ -94,7 +94,7 @@ class SignupForm extends Component {
             onChange={this.onChange}/>
         </div>
 
-        <div className="small-margin">
+        <div className="margin-5">
           <GenderPicker checked={gender} onChange={this.onChange} />
         </div>
 
