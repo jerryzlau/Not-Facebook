@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   mode: 'none',
@@ -33,7 +34,12 @@ export default {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin()
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'server/index.html',
+      title: 'Not Facebook',
+      favicon: './server/facebook.ico'
+    })
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.css', '*']
